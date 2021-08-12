@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>path</title>
+    <script>
+        // 绘制一个三角形
+       function draw() {
+           var canvas = document.getElementById('canvas')
+           if(canvas.getContext) {
+               var ctx = canvas.getContext('2d')
+
+               ctx.beginPath()
+               ctx.moveTo(75, 50)
+               ctx.lineTo(100, 75)
+               ctx.lineTo(100, 25)
+               ctx.fill()
+           }
+       }
+       window.onload = function() {
+        draw()
+       }
+      
+    </script>
+</head>
+<body>
+    <script>
+        /*
+            beginPath()
+                新建一条路径，生成之后，图形绘制命令会指向到路径上生成路径
+            closePath()
+                闭合路径之后图形绘制命令又重新指向到上下文中
+            stroke()
+                通过线条来绘制图形轮廓
+            fill()
+                通过填充路径的内容区域生成实心的图形
+
+                当前路径为空，即调用 beginPath()之后，或者 canvas 刚建的时候，第一条路径构造命令通常
+                被视为 moveTo()，无论实际上是什么。出于这个原因，你几乎总是要在设置路径之后专门指定你的
+                起始位置
+
+                当调用 fill 函数时，所有没有闭合的形状都会自动闭合，所以不需要调用 closePath() 函数。但是调用
+                stroke() 时不会自动闭合
+
+                1.beginPath
+                2.调用函数指定绘制路径
+                3.闭合路径
+            moveTo(x, y)
+                将笔触移动到指定的坐标 x 以及 y 上
+                通常会使用 moveTo 绘制一些不连续的路径
+        */
+       
+
+    </script>
+    <canvas id="canvas" ></canvas>
+    
+
+</body>
+</html>

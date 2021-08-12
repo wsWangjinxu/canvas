@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        /*
+         canvas 会初始化宽度为 300 像素和高度为 150 像素。该元素可以使用 css 来定义大小
+         但在绘制时图像会伸缩以适应它的框架尺寸：如果 css 的尺寸与初始画布的比例不一致，它会
+         出现扭曲。
+         是可替换内容
+         兼容性：
+            在不支持 canvas 的浏览器中将会忽略容器并在其中渲染后备内容。而支持 canvas 的浏览器将会忽略在
+            容器中包含的内容，并且只是正常渲染 canvas
+            <canvas id="stockGraph" width="150" height="150">
+              current stock price: $3.15 +0.15
+            </canvas>
+
+            <canvas id="clock" width="150" height="150">
+              <img src="images/clock.png" width="150" height="150" alt=""/>
+            </canvas>
+
+            <canvas> 元素需要结束标签(</canvas>)。如果结束标签不存在，则文档的其余部分会被认为是替代内容，将不会显示出来。
+        */
+        const canvas = document.getElementById('canvas') // 默认大小
+        const ctx = canvas.getContext('2d') // 获取渲染上下文
+        ctx.fillStyle = 'green'
+        ctx.fillRect(10, 10, 150, 100)
+
+        // 兼容性检测
+        if(canvas.getContext) {
+            var ctx = canvas.getContext('2d')
+        } else {
+            // canvas-unsupported code here
+        }
+        
+    </script>
+</body>
+</html>

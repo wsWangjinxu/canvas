@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('canvas')
+            if(canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+
+                ctx.fillRect(25, 25, 100, 100)
+                ctx.clearRect(45, 45, 60, 60)
+                ctx.strokeRect(50, 50, 50, 50)
+            }
+        }
+    </script>
+</head>
+<body onload="draw()">
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <script>
+        // 两种形式的图形绘制：矩形和路径（由一系列点连成的线段）
+        // 三种绘制方法
+        // fillRect(x, y, width, height) // 绘制一个填充矩形 
+        // strokeRect(x, y, width, height) // 绘制一个矩形边框
+        // clearRect(x, y, width, height) // 清楚指定矩形区域，让清除部分完全透明
+    </script>
+</body>
+</html>
