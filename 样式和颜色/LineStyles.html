@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			/*
+        Line Style
+
+        lineWidth = value 
+          设置线条宽度
+
+        lineCap = type
+          设置线条末端样式
+        
+        linJoin = type  
+          设定线条与线条间接合处的样式
+
+        miterLimit = value
+          限制当两条线相交时交接处最大长度；所谓交接处长度（斜接长度）是指
+          线条交接处内角定点到外角顶点的长度。
+
+        getLineDash()
+          返回一个包含当前虚线样式，长度为非负偶数的数组
+
+        setLineDash(segments)
+          设置当前虚线样式
+
+        lineDashOffset = value
+          设置虚线样式的其实偏移量
+        
+      */
+
+			function draw() {
+				var ctx = document.getElementById("canvas").getContext("2d");
+
+				// // lineWidth
+				// for (var i = 0; i < 10; i++) {
+				// 	ctx.lineWidth = 1 + i;
+				// 	ctx.beginPath();
+				// 	ctx.moveTo(5 + i * 14, 5);
+				// 	ctx.lineTo(5 + i * 14, 140);
+				// 	ctx.stroke();
+				// }
+
+				// // lineCap  butt，round，square
+				// var lineCap = ["butt", "round", "square"];
+				// // 创建路径
+				// ctx.strokeStyle = "#09f";
+				// ctx.beginPath();
+				// ctx.moveTo(10, 10);
+				// ctx.lineTo(140, 10);
+				// ctx.moveTo(10, 140);
+				// ctx.lineTo(140, 140);
+				// ctx.stroke();
+
+				// // 画线条
+				// ctx.strokeStyle = "black";
+				// for (var i = 0; i < lineCap.length; i++) {
+				// 	ctx.lineWidth = 15;
+				// 	ctx.lineCap = lineCap[i];
+				// 	ctx.beginPath();
+				// 	ctx.moveTo(25 + i * 50, 10);
+				// 	ctx.lineTo(25 + i * 50, 140);
+				// 	ctx.stroke();
+				// }
+
+				// // lineJoin round,bevel,miter 默认 miter
+				// var lineJoin = ["round", "bevel", "miter"];
+				// ctx.lineWidth = 10;
+				// for (var i = 0; i < lineJoin.length; i++) {
+				// 	ctx.lineJoin = lineJoin[i];
+				// 	ctx.beginPath();
+				// 	ctx.moveTo(5, 5 + i * 40);
+				// 	ctx.lineTo(35, 45 + i * 40);
+				// 	ctx.lineTo(75, 5 + i * 40);
+				// 	ctx.lineTo(115, 45 + i * 40);
+				// 	ctx.lineTo(155, 5 + i * 40);
+				// 	ctx.stroke();
+				// }
+
+				// miterLimit
+				/*
+          线段的外侧边缘会被延伸交汇于一点上。线段之间夹角比较大时，交点不会太远
+          但随着夹角变小，交点距离会呈指数级增大
+
+          miterLimit 属性就是用来设定外延交点与连接点的最大距离
+
+          如果距离大于此值，连接效果会变成了 bevel。注意：
+          最大斜接长度（即交点距离）是当前坐标系测量线宽与此 miterLimit 属性值（html <canvas> 默认是 10）的乘积
+          
+          所以 miterLimit 可以单独设置，不受显示比例改变或任何仿射变换的影响：
+            它只影响线条边缘的有效绘制形状
+
+          更准确的说，斜接限定值是延伸长度与一半现款的最大允许比值。
+        */
+				/*
+            miterLimit -= max miterLength / lineWidth = 1/sin(min(角度)/2)
+        */
+
+				// 使用虚线
+				// 使用 setLineDash 和 lineDashOffset 属性来制定虚线样式
+				/*
+           setLineDash 方法接受一个数组，来指定线段与间隙的交替
+           lineDashOffset 属性设置起始偏移量
+        */
+			}
+		</script>
+	</head>
+	<body onload="draw()">
+		<canvas id="canvas"></canvas>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			/*
+        路径类型就是 贝塞尔曲线
+        二次及三次贝塞尔曲线都十分有用，一般用来绘制复杂有规律的图形
+
+        quadraticCurveTo(cp1x, cp1y, x, y)
+        绘制二次贝塞尔曲线，cp1x, cp1y 为一个控制点，x, y 为结束点
+
+        bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+        绘制三次贝塞尔曲线，cp1x, cp1y 为控制点一，cp2x, cp2y 为控制点二
+        x, y 为结束点
+
+        使用二次以及三次贝塞尔曲线是有一定的难度的，因为不同于 Adobe ILLustrators
+        这样的矢量软件，我们所绘制的曲线没有给我们提供直接的视觉反馈。这让绘制复杂的
+        图形变得十分困难。
+    */
+			function draw() {
+				var canvas = document.getElementById("canvas");
+				if (canvas.getContext) {
+					var ctx = canvas.getContext("2d");
+
+					// 二次贝塞尔曲线
+					ctx.beginPath();
+					ctx.moveTo(75, 25);
+					ctx.quadraticCurveTo(25, 25, 25, 62.5);
+					ctx.quadraticCurveTo(25, 100, 50, 100);
+					ctx.quadraticCurveTo(50, 120, 30, 125);
+					ctx.quadraticCurveTo(60, 120, 65, 100);
+					ctx.quadraticCurveTo(125, 100, 125, 62.5);
+					ctx.quadraticCurveTo(125, 25, 75, 25);
+					ctx.stroke();
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="draw()">
+		<canvas id="canvas"></canvas>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			/**
+			 * canvas 操作图像能力。可以用于动态的图像合成或者作为图形的背景，以及
+			 * 游戏界面（Sprites）等等。浏览器支持的任意格式的外部图片都可以使用，比如
+			 *  PNG、GIF或者 JPEG。你甚至可以将同一个页面中其他 canvas 元素生成的图片
+			 * 作为图片源
+			 *
+			 * 两部基本操作：
+			 *    获得一个指向 HTMLImageElement 的对象或者另一个 canvas 元素的引用
+			 *    作为源，也可以通过提供一个 URL 的方式来使用图片
+			 *
+			 *    使用 drawImage() 函数将图片绘制到画布上
+			 *
+			 * 图片的源：
+			 *    HTMLImageElement
+			 *      由 Image() 函数构造出来的，或者任何的 <img> 元素
+			 *    HTMLVideoElement
+			 *      用一个 HTML 的 <video> 元素作为你的图片源，可以从视频中抓取当前帧作为一个图像
+			 *    HTMLCanvasElement
+			 *      可以使用另一个 <canvas> 元素作为你的图片源
+			 *    ImageBitmap
+			 *      高性能的位图，可以低延迟地绘制，可以从上述的所有源以及其它几种源中生成
+			 *
+			 * 绘制图片
+			 * drawImage(image, x, y)
+			 *    其中 image 是 image 或者 canvas 对象，x 和 y 是其在目标 canvas 里的起始坐标
+			 *
+			 * SVG 图像必须在 <svg> 根指定元素的宽度和高度
+			 *
+			 *  缩放
+			 *  drawImage(image, x, y, width, height)
+			 *    width
+			 *    height 缩放的参数
+			 *
+			 *  切片 slicing
+			 *  drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+			 *
+			 *  imageSmoothingEnabled 控制图像的缩放，启用平滑缩放
+			 *
+			 * */
+		</script>
+	</head>
+	<body></body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+      Path2D()
+        会返回一个新初始化的 Path2D 对象（可能将某一个路径作为变量
+        ——创建一个它的副本，或者将一个包含 SVG path 数据的字符串作为变量
+    */
+			// new Path2D(); // 空的 Path 对象
+			// new Path2D(path); // 克隆 Path 对象
+			// new Path2D(d); // 从 SVG 建立 Path 对象
+
+			/*
+      所有的路径方法比如 moveTo，rect，arc 或
+      quadraticCurveTo
+
+      Path2D API 添加了 addPath 作为将 path 结合起来的方法。
+      当你想要从几个元素中来创建对象时，这将会很实用。
+
+      Path2D.addPath(path [, transform])
+        添加了一条路径到当前路径（可能添加了个变换矩阵）
+    */
+		</script>
+		<script>
+			function draw() {
+				var canvas = document.getElementById("canvas");
+				if (canvas.getContext) {
+					var ctx = canvas.getContext("2d");
+
+					var rectangle = new Path2D();
+					rectangle.rect(10, 10, 50, 50);
+
+					var circle = new Path2D();
+					circle.moveTo(125, 35);
+					circle.arc(100, 35, 25, 0, 2 * Math.PI);
+
+					ctx.stroke(rectangle);
+					ctx.fill(circle);
+
+					ctx.beginPath();
+					ctx.moveTo(18, 25);
+					ctx.lineTo(60, 60);
+					ctx.stroke();
+					ctx.closePath();
+
+					var p = new Path2D("M10 10 h 80 v 80 h -80 Z");
+					ctx.stroke(p);
+				}
+			}
+
+			window.onload = draw;
+		</script>
+		<canvas id="canvas"></canvas>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<script>
+		/*
+    除了可以绘制实色图形，还可以用 canvas 来绘制半透明的图形。通过设置
+    globalAlpha 属性或者使用一个半透明颜色作为轮廓或填充的样式
+
+      globalAlpha = transparencyValue
+      这个属性影响到 canvas 里所有图形的透明度，有效值的范围是 0.0 （完全透明）
+      到 1.0 （完全不透明），默认是 1.0
+      在需要绘制大量拥有相同透明度的图形时候相当高效
+
+      也可以使用 符合css3 规范的颜色值的 rgba 来设置
+  */
+		function draw() {
+			var ctx = document.getElementById("canvas").getContext("2d");
+			// 画背景
+			ctx.fillStyle = "#FD0";
+			ctx.fillRect(0, 0, 75, 75);
+			ctx.fillStyle = "#6C0";
+			ctx.fillRect(75, 0, 75, 75);
+			ctx.fillStyle = "#09F";
+			ctx.fillRect(0, 75, 75, 75);
+			ctx.fillStyle = "#f30";
+			ctx.fillRect(75, 75, 75, 75);
+			ctx.fillStyle = "#FFF";
+
+			// 设置透明度
+			ctx.globalAlpha = 0.2;
+
+			// 画半透明圆
+			for (var i = 0; i < 7; i++) {
+				ctx.beginPath();
+				ctx.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
+				ctx.fill();
+			}
+		}
+
+		function rgbaDraw() {
+			var ctx = document.getElementById("canvas").getContext("2d");
+
+			// 画背景
+			ctx.fillStyle = "rgb(255, 221, 0)";
+			ctx.fillRect(0, 0, 150, 37.5);
+			ctx.fillStyle = "rgb(102, 204, 0)";
+			ctx.fillRect(0, 37.5, 150, 37.5);
+			ctx.fillStyle = "rgb(0, 153, 255)";
+			ctx.fillRect(0, 75, 150, 37.5);
+			ctx.fillStyle = "rgb(255, 51, 0)";
+			ctx.fillRect(0, 112.5, 150, 37.5);
+
+			// 画半透明矩形
+			for (var i = 0; i < 10; i++) {
+				ctx.fillStyle = "rgba(255, 255, 255, " + (i + 1) / 10 + ")";
+				for (var j = 0; j < 4; j++) {
+					ctx.fillRect(5 + i * 14, 5 + j * 37.5, 14, 27.5);
+				}
+			}
+		}
+	</script>
+	<!-- <body onload="draw()"> -->
+	<body onload="rgbaDraw()">
+		<canvas id="canvas"></canvas>
+	</body>
+</html>
