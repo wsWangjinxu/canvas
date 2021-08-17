@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			/**
+     * 控制图像使其平滑（反锯齿）
+     * 如何从 canvas 画布中保存图像
+     * 
+     * ImageData 对象
+     * 
+     * ImageData 对象中存储着 canvas 对象真实的像素数据，它包含以下几个只读
+     * 属性：
+     *  width   图像宽度，单位是像素
+     *  height  图片高度，单位是像素
+     *  data    Uint8ClampedArray 类型的一维数组，包含着 RGBA 格式的整数数据，范围在
+     *          [0, 255] 之间
+     * 
+     * data 属性返回一个 Uint8ClampedArray，它可以被使用作为查看初始像素数据。每个像素用
+     * 4个1bytes值（按照红，绿，蓝和透明值的顺序；这就是 "RGBA"格式）来代表。
+     * 每个颜色值部分用 0 至 255 来代表。每个部分被分配到一个在数组内连续的索引
+     * 左上角像素的红色部分在数组的索引 0 位置。像素从左到右被处理，然后往下，遍历整个数组
+
+      createImageData(width, height)  创建一个新的，空白的 ImageData 
+        创建了一个新的具体特定尺寸的 ImageData 对象。所有像素被预设为透明黑
+
+      getImageData(left, top, width, height)
+        返回一个 ImageData 对象，代表了画布区域的对象数据，此画布的四个角落分别表示
+
+        任何一个画布以外的元素都会被返回一个透明黑的 ImageData 对象
+      
+      putImageData(myImageDate, dx, dy)
+        
+        逐个像素修改图片
+
+        缩放和反锯齿
+        imageSmoothingEnabled // 反锯齿， false 关闭
+        
+        保存图片
+          toDataURL() 方法，保存图片，返回一个包含被类型参数规定的图像
+          表现格式的数据链接。返回的图片分辨率是 96dpi
+
+          canvas.toDataURL('image/png')
+            默认设定。创建一个 PNG 图片
+          canvas.toDataURL('image/jpeg', quality)
+            创建一个 JPG 图片。可以有选择地提供从 0 到 1 的品质量，1，表示最好品质
+            0 基本不被辨析但有比较小的文件大小
+          canvas.toBlob(callback, type, encoderOptions)
+            这个创建了一个在画布中的代表图片的Blob对像
+
+      */
+		</script>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+	</body>
+</html>
